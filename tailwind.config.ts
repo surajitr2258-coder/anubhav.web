@@ -1,0 +1,197 @@
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  darkMode: "class",
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        // Primary Colors
+        saffron: {
+          50: "#FFF8F0",
+          100: "#FFEFD6",
+          200: "#FFDBA8",
+          300: "#FFC170",
+          400: "#F5A235",
+          500: "#E8820C",
+          600: "#C96A06",
+          700: "#A65108",
+          800: "#87410F",
+          900: "#6F3610",
+        },
+        teal: {
+          50: "#F0FAFA",
+          100: "#D0F0F0",
+          200: "#A0E0E0",
+          300: "#60C8C8",
+          400: "#2DACAC",
+          500: "#0A6E6E",
+          600: "#085C5C",
+          700: "#074A4A",
+          800: "#063B3B",
+          900: "#043030",
+        },
+        // Secondary Colors
+        gold: {
+          50: "#FFFBF0",
+          100: "#FFF3D6",
+          200: "#FFE6A8",
+          300: "#FFD470",
+          400: "#E8BC4A",
+          500: "#D4A843",
+          600: "#B8902E",
+          700: "#8F6F24",
+          800: "#6B531B",
+          900: "#4A3A13",
+        },
+        terracotta: {
+          50: "#FEF5F2",
+          100: "#FDE8E2",
+          200: "#FBD0C4",
+          300: "#F5A894",
+          400: "#E07D63",
+          500: "#C4654A",
+          600: "#A84E35",
+          700: "#8C3E2A",
+          800: "#733325",
+          900: "#612D22",
+        },
+        sage: {
+          50: "#F4F9F5",
+          100: "#E2F0E5",
+          200: "#C5E0CC",
+          300: "#9CC9A8",
+          400: "#7BA587",
+          500: "#5B8A69",
+          600: "#466E52",
+          700: "#385843",
+          800: "#2F4737",
+          900: "#283B2F",
+        },
+        // Neutral Colors
+        charcoal: "#2D2D2D",
+        warmgray: {
+          50: "#FDFBF7",
+          100: "#F5F2EE",
+          200: "#E8E6E1",
+          300: "#D5D2CC",
+          400: "#B5B2AB",
+          500: "#9A968F",
+          600: "#7E7A73",
+          700: "#65615B",
+          800: "#4A4A4A",
+          900: "#2D2D2D",
+        },
+        // Accent
+        cta: {
+          DEFAULT: "#D94F30",
+          hover: "#C04428",
+          light: "#FDE8E2",
+        },
+        success: "#27AE60",
+        highlight: "#F2C94C",
+      },
+      fontFamily: {
+        heading: ["Playfair Display", "Georgia", "serif"],
+        body: ["DM Sans", "Inter", "system-ui", "sans-serif"],
+        accent: ["Caveat", "cursive"],
+      },
+      fontSize: {
+        "display-lg": ["72px", { lineHeight: "1.1", fontWeight: "700" }],
+        "display-md": ["56px", { lineHeight: "1.1", fontWeight: "700" }],
+        "display-sm": ["48px", { lineHeight: "1.15", fontWeight: "700" }],
+        "heading-xl": ["40px", { lineHeight: "1.2", fontWeight: "700" }],
+        "heading-lg": ["32px", { lineHeight: "1.25", fontWeight: "700" }],
+        "heading-md": ["28px", { lineHeight: "1.3", fontWeight: "600" }],
+        "heading-sm": ["24px", { lineHeight: "1.35", fontWeight: "600" }],
+        "heading-xs": ["20px", { lineHeight: "1.4", fontWeight: "600" }],
+        "body-lg": ["18px", { lineHeight: "1.7" }],
+        "body-md": ["16px", { lineHeight: "1.7" }],
+        "body-sm": ["14px", { lineHeight: "1.6" }],
+        "caption": ["12px", { lineHeight: "1.5" }],
+      },
+      spacing: {
+        "section": "100px",
+        "section-mobile": "60px",
+        "18": "72px",
+        "30": "120px",
+      },
+      maxWidth: {
+        "container": "1200px",
+        "container-lg": "1400px",
+        "narrow": "800px",
+        "prose": "680px",
+      },
+      borderRadius: {
+        "card": "16px",
+        "button": "50px",
+      },
+      boxShadow: {
+        "card": "0 2px 8px rgba(0,0,0,0.04)",
+        "card-hover": "0 12px 32px rgba(0,0,0,0.08)",
+        "nav": "0 2px 20px rgba(0,0,0,0.06)",
+        "button": "0 4px 15px rgba(217,79,48,0.4)",
+        "elevated": "0 20px 60px rgba(0,0,0,0.1)",
+      },
+      animation: {
+        "fade-up": "fadeUp 0.6s ease-out forwards",
+        "fade-in": "fadeIn 0.6s ease-out forwards",
+        "slide-left": "slideLeft 0.6s ease-out forwards",
+        "slide-right": "slideRight 0.6s ease-out forwards",
+        "pulse-soft": "pulseSoft 3s ease-in-out infinite",
+        "bounce-gentle": "bounceGentle 2s ease-in-out infinite",
+        "marquee": "marquee 30s linear infinite",
+        "marquee-reverse": "marqueeReverse 30s linear infinite",
+        "count-up": "countUp 2.5s ease-out forwards",
+        "spin-slow": "spin 3s linear infinite",
+      },
+      keyframes: {
+        fadeUp: {
+          "0%": { opacity: "0", transform: "translateY(30px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        slideLeft: {
+          "0%": { opacity: "0", transform: "translateX(-40px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        slideRight: {
+          "0%": { opacity: "0", transform: "translateX(40px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        pulseSoft: {
+          "0%, 100%": { boxShadow: "0 4px 15px rgba(217,79,48,0.3)" },
+          "50%": { boxShadow: "0 4px 25px rgba(217,79,48,0.6)" },
+        },
+        bounceGentle: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-8px)" },
+        },
+        marquee: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        marqueeReverse: {
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0%)" },
+        },
+      },
+      backgroundImage: {
+        "gradient-warm": "linear-gradient(135deg, #E8820C 0%, #D94F30 100%)",
+        "gradient-teal": "linear-gradient(135deg, #0A6E6E 0%, #0D8585 100%)",
+        "gradient-hero": "linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%)",
+        "gradient-dark": "linear-gradient(180deg, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.3) 100%)",
+      },
+    },
+  },
+  plugins: [],
+};
+
+export default config;
