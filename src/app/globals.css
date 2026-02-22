@@ -1,0 +1,273 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   FONT IMPORTS
+   ======================================== */
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/PlayfairDisplay-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/PlayfairDisplay-Italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/DMSans-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/DMSans-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/DMSans-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Caveat";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Caveat-Regular.woff2") format("woff2");
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+@layer base {
+  :root {
+    --color-saffron: #e8820c;
+    --color-teal: #0a6e6e;
+    --color-gold: #d4a843;
+    --color-terracotta: #c4654a;
+    --color-sage: #7ba587;
+    --color-cta: #d94f30;
+    --color-charcoal: #2d2d2d;
+    --color-body: #4a4a4a;
+    --color-bg: #fdfbf7;
+    --color-card-bg: #ffffff;
+    --color-border: #e8e6e1;
+
+    --nav-height: 72px;
+    --section-padding: 100px;
+    --container-max: 1200px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply font-body text-warmgray-800 bg-warmgray-50;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-charcoal;
+  }
+
+  a {
+    @apply transition-colors duration-300;
+  }
+
+  img {
+    @apply max-w-full h-auto;
+  }
+
+  ::selection {
+    @apply bg-saffron-200 text-saffron-900;
+  }
+
+  /* Smooth focus styles */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-teal-500 rounded-sm;
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-warmgray-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-warmgray-400 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-warmgray-500;
+  }
+}
+
+/* ========================================
+   COMPONENT STYLES
+   ======================================== */
+@layer components {
+  .container-custom {
+    @apply max-w-container mx-auto px-5 md:px-8 lg:px-12;
+  }
+
+  .container-narrow {
+    @apply max-w-narrow mx-auto px-5 md:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-20 lg:py-[100px];
+  }
+
+  .section-padding-sm {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+
+  /* Button variants */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+    bg-cta text-white font-bold text-sm uppercase tracking-wider
+    px-8 py-3.5 rounded-button
+    hover:bg-cta-hover hover:-translate-y-0.5
+    active:translate-y-0 
+    shadow-button hover:shadow-lg
+    transition-all duration-300
+    disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+    bg-transparent text-teal-500 font-bold text-sm uppercase tracking-wider
+    px-8 py-3.5 rounded-button
+    border-2 border-teal-500
+    hover:bg-teal-500 hover:text-white hover:-translate-y-0.5
+    active:translate-y-0
+    transition-all duration-300;
+  }
+
+  .btn-outline-white {
+    @apply inline-flex items-center justify-center gap-2
+    bg-transparent text-white font-bold text-sm uppercase tracking-wider
+    px-8 py-3.5 rounded-button
+    border-2 border-white
+    hover:bg-white hover:text-charcoal hover:-translate-y-0.5
+    active:translate-y-0
+    transition-all duration-300;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-1.5
+    text-teal-500 font-semibold text-body-md
+    hover:text-teal-700
+    transition-all duration-300 group;
+  }
+
+  .btn-donate {
+    @apply inline-flex items-center justify-center gap-2
+    bg-gradient-warm text-white font-bold text-sm uppercase tracking-wider
+    px-8 py-3.5 rounded-button
+    shadow-button animate-pulse-soft
+    hover:scale-[1.03] hover:shadow-lg
+    active:scale-100
+    transition-all duration-300;
+  }
+
+  /* Card base */
+  .card {
+    @apply bg-white border border-warmgray-200 rounded-card
+    shadow-card hover:shadow-card-hover 
+    hover:-translate-y-1
+    transition-all duration-300;
+  }
+
+  /* Section tag */
+  .section-tag {
+    @apply inline-flex items-center gap-2
+    text-saffron-500 font-bold text-xs uppercase tracking-[3px]
+    mb-4;
+  }
+
+  .section-tag::before {
+    content: "";
+    @apply block w-8 h-0.5 bg-saffron-500;
+  }
+
+  /* Image hover effect */
+  .img-hover-zoom {
+    @apply overflow-hidden;
+  }
+
+  .img-hover-zoom img {
+    @apply transition-transform duration-500 ease-out;
+  }
+
+  .img-hover-zoom:hover img {
+    @apply scale-105;
+  }
+
+  /* Text clamp */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-warm bg-clip-text text-transparent;
+  }
+}
+
+/* ========================================
+   UTILITY STYLES
+   ======================================== */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
